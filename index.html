@@ -50,16 +50,21 @@
                 <div class="content-area">
                     <form id="convert-case">
                         <div class="mb-3">
-                            <textarea class="form-control" id="ConvertCaseField" rows="8"></textarea>
+                            <textarea class="form-control" id="ConvertCaseField" rows="8">Type or paste your content here</textarea>
                         </div>
 
                         <div class="btn-group" role="group">
                             <button type="button" name="SentenceCase" id="SentenceCase" class="btn">Sentence case</button>
                             <button type="button" name="UpperCase" id="UpperCase" class="btn">UPPER CASE</button>
                             <button type="button" name="LoweCase" id="LoweCase" class="btn">lower case</button>
-
+                            <button type="button" name="CapitalizedCase" id="CapitalizedCase" class="btn">Capitalized Case</button>
+                            <button type="button" name="AlternatingCase" id="AlternatingCase" class="btn">aLtErNaTiNg cAsE</button>
+                            <button type="button" name="TitleCase" id="TitleCase" class="btn">Title Case</button>
+                            <button type="button" name="InverseCase" id="InverseCase" class="btn">iNVERSE cASE</button>
                             <div class="copied"></div>
                             <button type="button" onclick="copyTextFun()" class="btn btn-copy">Copy</button>
+                            
+                            <button type="button" name="clear" id="clear" class="btn">Clear</button>
                         </div>
                     </form>
                 </div>
