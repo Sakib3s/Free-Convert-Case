@@ -86,32 +86,47 @@
         }
     });
 
-    // Word Count
-    var wordCounts = {};
+    // Report Count
+    $('#ConvertCaseField').click(function(){
+        var wordCounts = {};
 
-    $("#ConvertCaseField").each(function() {
-        var input = '#' + this.id;
-        word_count(input);
-
-        $(this).keyup(function() {
+        $("#ConvertCaseField").each(function() {
+            var input = '#' + this.id;
             word_count(input);
-        })
 
+            $(this).keyup(function() {
+                word_count(input);
+            });
+        });
+
+        function word_count(field) {
+            var number = 0;
+            var matches = $(field).val().match(/\b/g);
+            if (matches) {
+                number = matches.length / 2;
+            }
+            wordCounts[field] = number;
+            var finalCount = 0;
+            $.each(wordCounts, function(k, v) {
+                finalCount += v;
+            });
+            $('#finalcount').text(finalCount)
+        }
     });
 
-    function word_count(field) {
-        var number = 0;
-        var matches = $(field).val().match(/\b/g);
-        if (matches) {
-            number = matches.length / 2;
-        }
-        wordCounts[field] = number;
-        var finalCount = 0;
-        $.each(wordCounts, function(k, v) {
-            finalCount += v;
-        });
-        $('#finalcount').text(finalCount)
-    }
+    // Character Count
+    $("#ConvertCaseField").keyup(function() {
+        var value = $("#ConvertCaseField").val();
+        $('#charactercount').text(value.length);
+    });
+
+    // Line Count
+    $("#ConvertCaseField").keyup(function() {
+        var value = $("#ConvertCaseField").val();   
+        var lines = value.split(/\r|\r\n|\n/);
+        $('#linecount').text(lines.length);
+    });
+
 
 }(jQuery));
 
