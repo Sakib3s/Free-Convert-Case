@@ -86,6 +86,33 @@
         }
     });
 
+    // Word Count
+    var wordCounts = {};
+
+    $("#ConvertCaseField").each(function() {
+        var input = '#' + this.id;
+        word_count(input);
+
+        $(this).keyup(function() {
+            word_count(input);
+        })
+
+    });
+
+    function word_count(field) {
+        var number = 0;
+        var matches = $(field).val().match(/\b/g);
+        if (matches) {
+            number = matches.length / 2;
+        }
+        wordCounts[field] = number;
+        var finalCount = 0;
+        $.each(wordCounts, function(k, v) {
+            finalCount += v;
+        });
+        $('#finalcount').text(finalCount)
+    }
+
 }(jQuery));
 
 function copyTextFun() {
